@@ -1,0 +1,349 @@
+<html>
+<head>
+<title>rootdir - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>rootdir - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>root@929bac81c05b</td></tr>
+<tr><th>Working Directory:</th><td>/rootdir</td></tr>
+<tr><th>Command Line:</th><td>make -j 2</td></tr>
+<tr><th>Clang Version:</th><td>clang version 12.0.0 (Fedora 12.0.0-0.3.rc1.fc34)
+</td></tr>
+<tr><th>Date:</th><td>Fri Jun  4 15:05:44 2021</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">83</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>Dead code</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Unreachable code</td><td class="Q">38</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_dead_code_unreachable_code');" checked/></center></td></tr>
+<tr><th>Dead store</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">14</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_dead_store_dead_assignment');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Cast region with wrong size</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_cast_region_with_wrong_size');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dereference of null pointer</td><td class="Q">3</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Identical branches</td><td class="Q">12</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_identical_branches');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Out-of-bound access</td><td class="Q">6</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_out-of-bound_access');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Result of operation is garbage or undefined</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_result_of_operation_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Use fixed address</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_use_fixed_address');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_logic_error_cast_region_with_wrong_size"><td class="DESC">Logic error</td><td class="DESC">Cast region with wrong size</td><td>ui/theme.c</td><td class="DESC">meta_color_spec_new</td><td class="Q">1324</td><td class="Q">4</td><td><a href="report-5a8849.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5a8849.html" -->
+</tr>
+<tr class="bt_logic_error_cast_region_with_wrong_size"><td class="DESC">Logic error</td><td class="DESC">Cast region with wrong size</td><td>ui/theme.c</td><td class="DESC">meta_draw_op_new</td><td class="Q">3177</td><td class="Q">3</td><td><a href="report-5e5937.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5e5937.html" -->
+</tr>
+<tr class="bt_logic_error_cast_region_with_wrong_size"><td class="DESC">Logic error</td><td class="DESC">Cast region with wrong size</td><td>ui/theme.c</td><td class="DESC">meta_draw_op_new</td><td class="Q">3177</td><td class="Q">3</td><td><a href="report-ca0378.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ca0378.html" -->
+</tr>
+<tr class="bt_logic_error_cast_region_with_wrong_size"><td class="DESC">Logic error</td><td class="DESC">Cast region with wrong size</td><td>ui/theme.c</td><td class="DESC">meta_color_spec_new</td><td class="Q">1324</td><td class="Q">4</td><td><a href="report-d3693c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d3693c.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>wm-tester/test-resizing.c</td><td class="DESC">main</td><td class="Q">139</td><td class="Q">1</td><td><a href="report-0f1c94.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0f1c94.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>ui/frames.c</td><td class="DESC">meta_frames_button_press_event</td><td class="Q">1775</td><td class="Q">1</td><td><a href="report-592521.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-592521.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/edge-resistance.c</td><td class="DESC">find_nearest_position</td><td class="Q">204</td><td class="Q">1</td><td><a href="report-7f7ce2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7f7ce2.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/keybindings.c</td><td class="DESC">reload_modmap</td><td class="Q">203</td><td class="Q">1</td><td><a href="report-813dcf.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-813dcf.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/edge-resistance.c</td><td class="DESC">find_nearest_position</td><td class="Q">204</td><td class="Q">1</td><td><a href="report-8612cc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8612cc.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/screen.c</td><td class="DESC">meta_screen_sn_event</td><td class="Q">2699</td><td class="Q">1</td><td><a href="report-a22c8d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a22c8d.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/screen.c</td><td class="DESC">meta_screen_sn_event</td><td class="Q">2699</td><td class="Q">1</td><td><a href="report-aff45d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-aff45d.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/keybindings.c</td><td class="DESC">meta_display_process_key_event</td><td class="Q">1324</td><td class="Q">1</td><td><a href="report-b12442.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b12442.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>wm-tester/test-size-hints.c</td><td class="DESC">main</td><td class="Q">91</td><td class="Q">1</td><td><a href="report-e12423.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e12423.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/keybindings.c</td><td class="DESC">meta_display_process_key_event</td><td class="Q">1324</td><td class="Q">1</td><td><a href="report-e84b25.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e84b25.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>ui/frames.c</td><td class="DESC">meta_frames_button_press_event</td><td class="Q">1775</td><td class="Q">1</td><td><a href="report-eb911e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-eb911e.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>wm-tester/test-size-hints.c</td><td class="DESC">main</td><td class="Q">92</td><td class="Q">1</td><td><a href="report-f5b306.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f5b306.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>core/keybindings.c</td><td class="DESC">reload_modmap</td><td class="Q">203</td><td class="Q">1</td><td><a href="report-fa7cd9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fa7cd9.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>wm-tester/test-resizing.c</td><td class="DESC">main</td><td class="Q">138</td><td class="Q">1</td><td><a href="report-fb6c09.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fb6c09.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>core/window.c</td><td class="DESC">idle_calc_showing</td><td class="Q">1621</td><td class="Q">4</td><td><a href="report-29bfcf.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-29bfcf.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>core/window.c</td><td class="DESC">idle_calc_showing</td><td class="Q">1621</td><td class="Q">4</td><td><a href="report-328232.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-328232.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>ui/theme-viewer.c</td><td class="DESC">main</td><td class="Q">895</td><td class="Q">10</td><td><a href="report-c2f41c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c2f41c.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/window.c</td><td class="DESC">meta_window_should_be_showing</td><td class="Q">1445</td><td class="Q">1</td><td><a href="report-0e1798.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0e1798.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/window-props.c</td><td class="DESC">reload_transient_for</td><td class="Q">1508</td><td class="Q">1</td><td><a href="report-1dee51.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1dee51.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/workspace.c</td><td class="DESC">focus_ancestor_or_top_window</td><td class="Q">1043</td><td class="Q">1</td><td><a href="report-25b8eb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-25b8eb.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/window.c</td><td class="DESC">meta_window_minimize</td><td class="Q">2432</td><td class="Q">1</td><td><a href="report-67413a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-67413a.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/window.c</td><td class="DESC">meta_window_minimize</td><td class="Q">2432</td><td class="Q">1</td><td><a href="report-838cfc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-838cfc.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/session.c</td><td class="DESC">get_possible_matches</td><td class="Q">1562</td><td class="Q">1</td><td><a href="report-a45d15.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a45d15.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/workspace.c</td><td class="DESC">focus_ancestor_or_top_window</td><td class="Q">1043</td><td class="Q">1</td><td><a href="report-ae218d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ae218d.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/screen.c</td><td class="DESC">meta_screen_new</td><td class="Q">568</td><td class="Q">1</td><td><a href="report-b4a545.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b4a545.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/session.c</td><td class="DESC">get_possible_matches</td><td class="Q">1562</td><td class="Q">1</td><td><a href="report-bc30f3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bc30f3.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/window-props.c</td><td class="DESC">reload_transient_for</td><td class="Q">1508</td><td class="Q">1</td><td><a href="report-bf818a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bf818a.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/screen.c</td><td class="DESC">meta_screen_new</td><td class="Q">568</td><td class="Q">1</td><td><a href="report-d18fa3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d18fa3.html" -->
+</tr>
+<tr class="bt_logic_error_identical_branches"><td class="DESC">Logic error</td><td class="DESC">Identical branches</td><td>core/window.c</td><td class="DESC">meta_window_should_be_showing</td><td class="Q">1445</td><td class="Q">1</td><td><a href="report-d7d079.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d7d079.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>core/xprops.c</td><td class="DESC">utf8_list_from_results</td><td class="Q">475</td><td class="Q">28</td><td><a href="report-3f4e28.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3f4e28.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>core/async-getprop.c</td><td class="DESC">async_get_property_handler</td><td class="Q">448</td><td class="Q">19</td><td><a href="report-650ba8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-650ba8.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>core/async-getprop.c</td><td class="DESC">async_get_property_handler</td><td class="Q">385</td><td class="Q">19</td><td><a href="report-7cfac8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7cfac8.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>core/async-getprop.c</td><td class="DESC">async_get_property_handler</td><td class="Q">385</td><td class="Q">19</td><td><a href="report-87eb62.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-87eb62.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>core/xprops.c</td><td class="DESC">utf8_list_from_results</td><td class="Q">475</td><td class="Q">28</td><td><a href="report-89a56c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-89a56c.html" -->
+</tr>
+<tr class="bt_logic_error_out-of-bound_access"><td class="DESC">Logic error</td><td class="DESC">Out-of-bound access</td><td>core/async-getprop.c</td><td class="DESC">async_get_property_handler</td><td class="Q">448</td><td class="Q">19</td><td><a href="report-d7acc2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d7acc2.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>core/prefs.c</td><td class="DESC">button_layout_handler</td><td class="Q">1507</td><td class="Q">8</td><td><a href="report-4b0460.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4b0460.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>core/prefs.c</td><td class="DESC">button_layout_handler</td><td class="Q">1507</td><td class="Q">8</td><td><a href="report-807857.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-807857.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>core/prefs.c</td><td class="DESC">button_layout_equal</td><td class="Q">1299</td><td class="Q">10</td><td><a href="report-d8ab08.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d8ab08.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>core/prefs.c</td><td class="DESC">button_layout_equal</td><td class="Q">1299</td><td class="Q">10</td><td><a href="report-ee9546.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ee9546.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme.c</td><td class="DESC">meta_gtk_arrow_to_string</td><td class="Q">6822</td><td class="Q">1</td><td><a href="report-023679.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-023679.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">524</td><td class="Q">1</td><td><a href="report-0828d9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0828d9.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/bell.c</td><td class="DESC">meta_bell_init</td><td class="Q">401</td><td class="Q">1</td><td><a href="report-08871f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-08871f.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">524</td><td class="Q">1</td><td><a href="report-0a1fd0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0a1fd0.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">530</td><td class="Q">1</td><td><a href="report-0fa298.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0fa298.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/prefs.c</td><td class="DESC">meta_prefs_get_application_based</td><td class="Q">1571</td><td class="Q">1</td><td><a href="report-155839.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-155839.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme.c</td><td class="DESC">meta_gtk_shadow_to_string</td><td class="Q">6785</td><td class="Q">1</td><td><a href="report-21f0e3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-21f0e3.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">512</td><td class="Q">1</td><td><a href="report-4a72cb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4a72cb.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">518</td><td class="Q">1</td><td><a href="report-4a9a61.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4a9a61.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">518</td><td class="Q">1</td><td><a href="report-4bd1b1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4bd1b1.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/frames.c</td><td class="DESC">meta_frames_button_press_event</td><td class="Q">1698</td><td class="Q">1</td><td><a href="report-55d9b4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-55d9b4.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">515</td><td class="Q">1</td><td><a href="report-5e50bb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5e50bb.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">530</td><td class="Q">1</td><td><a href="report-5ecae7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5ecae7.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme.c</td><td class="DESC">meta_gtk_arrow_to_string</td><td class="Q">6822</td><td class="Q">1</td><td><a href="report-6046e2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6046e2.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">509</td><td class="Q">1</td><td><a href="report-6d7476.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6d7476.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">521</td><td class="Q">1</td><td><a href="report-72ba63.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-72ba63.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">500</td><td class="Q">1</td><td><a href="report-78da91.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-78da91.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme.c</td><td class="DESC">meta_gtk_shadow_to_string</td><td class="Q">6785</td><td class="Q">1</td><td><a href="report-945b83.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-945b83.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme.c</td><td class="DESC">meta_image_fill_type_to_string</td><td class="Q">6861</td><td class="Q">1</td><td><a href="report-994b93.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-994b93.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/frames.c</td><td class="DESC">meta_frames_button_press_event</td><td class="Q">1698</td><td class="Q">1</td><td><a href="report-9e351a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9e351a.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">515</td><td class="Q">1</td><td><a href="report-9f19dc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9f19dc.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/prefs.c</td><td class="DESC">meta_prefs_get_application_based</td><td class="Q">1571</td><td class="Q">1</td><td><a href="report-a673f5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a673f5.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">500</td><td class="Q">1</td><td><a href="report-a70eba.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a70eba.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">521</td><td class="Q">1</td><td><a href="report-a727cf.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a727cf.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme.c</td><td class="DESC">meta_image_fill_type_to_string</td><td class="Q">6861</td><td class="Q">1</td><td><a href="report-ae13f2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ae13f2.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">512</td><td class="Q">1</td><td><a href="report-b68e4a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b68e4a.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/bell.c</td><td class="DESC">meta_bell_init</td><td class="Q">401</td><td class="Q">1</td><td><a href="report-bedc24.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bedc24.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">506</td><td class="Q">1</td><td><a href="report-c0d4d8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c0d4d8.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">506</td><td class="Q">1</td><td><a href="report-ca2475.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ca2475.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">503</td><td class="Q">1</td><td><a href="report-cc5b7d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cc5b7d.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">503</td><td class="Q">1</td><td><a href="report-d0d049.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d0d049.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">527</td><td class="Q">1</td><td><a href="report-d7a496.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d7a496.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme-viewer.c</td><td class="DESC">main</td><td class="Q">903</td><td class="Q">1</td><td><a href="report-da0202.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-da0202.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">509</td><td class="Q">1</td><td><a href="report-e2f2ff.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e2f2ff.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>ui/theme-viewer.c</td><td class="DESC">main</td><td class="Q">896</td><td class="Q">1</td><td><a href="report-e5fb28.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e5fb28.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/bell.c</td><td class="DESC">meta_bell_init</td><td class="Q">409</td><td class="Q">1</td><td><a href="report-e63fc9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e63fc9.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/util.c</td><td class="DESC">meta_gravity_to_string</td><td class="Q">527</td><td class="Q">1</td><td><a href="report-e8766b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e8766b.html" -->
+</tr>
+<tr class="bt_dead_code_unreachable_code"><td class="DESC">Dead code</td><td class="DESC">Unreachable code</td><td>core/bell.c</td><td class="DESC">meta_bell_init</td><td class="Q">409</td><td class="Q">1</td><td><a href="report-f25d3d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f25d3d.html" -->
+</tr>
+<tr class="bt_logic_error_use_fixed_address"><td class="DESC">Logic error</td><td class="DESC">Use fixed address</td><td>core/main.c</td><td class="DESC">main</td><td class="Q">400</td><td class="Q">3</td><td><a href="report-85b234.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-85b234.html" -->
+</tr>
+<tr class="bt_logic_error_use_fixed_address"><td class="DESC">Logic error</td><td class="DESC">Use fixed address</td><td>core/main.c</td><td class="DESC">main</td><td class="Q">400</td><td class="Q">3</td><td><a href="report-e61cf1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e61cf1.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>

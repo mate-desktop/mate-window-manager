@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="https://github.com/mate-desktop/mate-icon-theme/raw/master/mate/16x16/apps/preferences-system-windows.png" />
+  <title>marco Code Analyzer results</title>
+</head>
+<body>
+<h1>
+  <a href="https://github.com/mate-desktop">mate-desktop</a>/<a href="https://github.com/mate-desktop/marco">marco</a> Static analyzer results
+</h1>
+  <a href="https://github.com/mate-desktop/marco" title="Github"><i class="fa fa-github fa-2x"></i>GitHub</a>
+  <a href="https://app.travis-ci.com/mate-desktop/marco/builds/232288683" title="Travis CI"><img src="https://travis-ci.org/mate-desktop/marco.svg?branch=master" alt="Build Status" /></a>
+<hr/>
+Commit: <a href="https://github.com/mate-desktop/marco/commit/8f204678be6d888ad1d2904e28af1aa9f2ad8e11">8f204678be6d888ad1d2904e28af1aa9f2ad8e11</a><br/>
+Compare: <a href="https://github.com/mate-desktop/marco/compare/3ed0ddb242a4...8f204678be6d">3ed0ddb242a4...8f204678be6d</a><br/>
+Branch: <a href="https://github.com/mate-desktop/marco/tree/master">master</a><br/>
+Time: 2021-07-09 14:06:56+00:00<br/>
+Messages:<br/>
+<pre>
+tabpopup: fix cairo surface leak
+
+Commit 6b05da5e49996a2101edfd703dd3f5d91011d726 introduced a Cairo
+surface leak, by calling gdk_cairo_surface_create_from_pixbuf() but then
+never freeing those surfaces with cairo_surface_destroy().
+
+This manifested in leaking resources when switching between virtual
+desktops, as observed using xrestop ("Pxms" column), which made the
+desktop slow and ultimately unusable after a few weeks of uptime.
+
+Fixes #685
+</pre>
+<hr/>
+<ul>
+<li><a href="2021-07-09-140656-5842-cppcheck@8f204678be6d_master">2021-07-09-140656-5842-cppcheck@8f204678be6d_master</a></li>
+<li><a href="2021-06-04-163547-6055-1@4ec1bb6d8f3f_v1.25.1@8f204678be6d_master">2021-06-04-163547-6055-1@4ec1bb6d8f3f_v1.25.1@8f204678be6d_master</a></li>
+<li><a href=2021-06-07-182332-4053-cppcheck@3ed0ddb242a4_master>2021-06-07-182332-4053-cppcheck@3ed0ddb242a4_master</a></li>
+<li><a href=2021-06-07-182107-0161-cppcheck@3ed0ddb242a4_master>2021-06-07-182107-0161-cppcheck@3ed0ddb242a4_master</a></li>
+<li><a href=2021-06-07-181341-6055-1@3ed0ddb242a4_master>2021-06-07-181341-6055-1@3ed0ddb242a4_master</a></li>
+<li><a href=2021-06-04-164524-5281-cppcheck@4ec1bb6d8f3f_v1.25.1>2021-06-04-164524-5281-cppcheck@4ec1bb6d8f3f_v1.25.1</a></li>
+<li><a href=2021-06-04-164302-1072-cppcheck@4ec1bb6d8f3f_v1.25.1>2021-06-04-164302-1072-cppcheck@4ec1bb6d8f3f_v1.25.1</a></li>
+<li><a href=2021-06-04-163547-6055-1@4ec1bb6d8f3f_v1.25.1>2021-06-04-163547-6055-1@4ec1bb6d8f3f_v1.25.1</a></li>
+<li><a href=2021-06-04-154331-0366-cppcheck@4f567598327e_master>2021-06-04-154331-0366-cppcheck@4f567598327e_master</a></li>
+<li><a href=2021-06-04-154110-1291-cppcheck@4f567598327e_master>2021-06-04-154110-1291-cppcheck@4f567598327e_master</a></li>
+<li><a href=2021-06-04-153405-6057-1@4f567598327e_master>2021-06-04-153405-6057-1@4f567598327e_master</a></li>
+<li><a href=2021-06-04-151524-4012-cppcheck@60e6fbfb093d_master>2021-06-04-151524-4012-cppcheck@60e6fbfb093d_master</a></li>
+<li><a href=2021-06-04-151258-9443-cppcheck@60e6fbfb093d_master>2021-06-04-151258-9443-cppcheck@60e6fbfb093d_master</a></li>
+<li><a href=2021-06-04-150544-6055-1@60e6fbfb093d_master>2021-06-04-150544-6055-1@60e6fbfb093d_master</a></li>
+<li><a href=2021-05-30-084150-0456-cppcheck@58f6395688a5_improve-fallback-icons>2021-05-30-084150-0456-cppcheck@58f6395688a5_improve-fallback-icons</a></li>
+<li><a href=2021-05-30-083929-2320-cppcheck@58f6395688a5_improve-fallback-icons>2021-05-30-083929-2320-cppcheck@58f6395688a5_improve-fallback-icons</a></li>
+<li><a href=2021-05-30-083855-3544-cppcheck@f2ca23471903_master>2021-05-30-083855-3544-cppcheck@f2ca23471903_master</a></li>
+<li><a href=2021-05-30-083642-0906-cppcheck@f2ca23471903_master>2021-05-30-083642-0906-cppcheck@f2ca23471903_master</a></li>
+<li><a href=2021-05-30-083216-6067-1@58f6395688a5_improve-fallback-icons>2021-05-30-083216-6067-1@58f6395688a5_improve-fallback-icons</a></li>
+<li><a href=2021-05-30-082940-6074-1@f2ca23471903_master@4ec1bb6d8f3f_v1.25.1>2021-05-30-082940-6074-1@f2ca23471903_master@4ec1bb6d8f3f_v1.25.1</a></li>
+</ul>
+</body>
+</html>
